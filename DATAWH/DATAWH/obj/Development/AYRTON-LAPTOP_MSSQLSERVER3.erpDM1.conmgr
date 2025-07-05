@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="AYRTON-LAPTOP_MSSQLSERVER3.erpDM1"
+  DTS:DTSID="{24B6715F-0B81-4B93-B032-C1D34F4B5EB4}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=AYRTON-LAPTOP\MSSQLSERVER3;Initial Catalog=erpDM;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DATAWH-{24B6715F-0B81-4B93-B032-C1D34F4B5EB4}AYRTON-LAPTOP\MSSQLSERVER3.erpDM1;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,29 @@
+<AnalysisServicesUserConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>Hotel DM</Id>
+            <Name>Hotel DM</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9nEWmmMOAEG4fpSH9elGjQAAAAASAAAASABvAHQAZQBsACAARABNAAAAEGYAAAABAAAgAAAAhbmrpXevlFgvNDJZ+Zl54vEFCuWvX1woL53OUnkqNvUAAAAADoAAAAACAAAgAAAAHj/ruZuT8y/xAHMmh3nV8ohiUGVi6RrCaOHl3UGREMsQAAAAoJslAn56ZRyErbSVf1e9aEAAAACyY/zTqbKyyYzjdvDafNLv4D8+AWXm47uq7ORz4ZTCcx2O4MMUV2h08kJ+NPuhR2I5jeEEwO3MkIz6U2mJMd9R</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>Hotel DM</Id>
+            <Name>Hotel DM</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9nEWmmMOAEG4fpSH9elGjQAAAAASAAAASABvAHQAZQBsACAARABNAAAAEGYAAAABAAAgAAAAtSCD29ZZTKJhCDybTYp2kQ22Sqee4AQLU0tbe+C3WjcAAAAADoAAAAACAAAgAAAAGBjLW9ayAksnUSG+wdiKVot3RUIEHfy5UyNj5ER2+tMgAAAAIf5giaTbNbDxzHL8nJ7BgPqe+4N17mlaINUo5GTPHX1AAAAAaDNuCIQnWgd5nsPBonTH4gOfT2tEidCFM3NkXRf4ZQ9FY/50dEDxMHxahyMESfhraZ6rdJPIhFCAcR2H+Tlhxw==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
+        <TargetServer>Ayrton-Laptop\MSSQLSERVER3</TargetServer>
+        <TargetDatabase>hotelAS</TargetDatabase>
+        <StartObject>
+          <ObjectId></ObjectId>
+          <ObjectType>Current</ObjectType>
+        </StartObject>
+      </Options>
+    </Configuration>
+  </Configurations>
+</AnalysisServicesUserConfiguration>

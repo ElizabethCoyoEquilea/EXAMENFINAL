@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="AYRTON-LAPTOP_MSSQLSERVER3.erp"
+  DTS:DTSID="{1AFC0785-6D02-4568-8492-A66DE2CC57B7}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AYRTON-LAPTOP\MSSQLSERVER3;Initial Catalog=erp;Integrated Security=True;TrustServerCertificate=True;Application Name=SSIS-DATAWH-{1AFC0785-6D02-4568-8492-A66DE2CC57B7}AYRTON-LAPTOP\MSSQLSERVER3.erp;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

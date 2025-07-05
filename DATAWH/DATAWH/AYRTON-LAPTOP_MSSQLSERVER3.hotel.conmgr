@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="AYRTON-LAPTOP_MSSQLSERVER3.hotel"
+  DTS:DTSID="{6F29FCEB-B3F4-4B6A-93E5-76E65E613BA6}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AYRTON-LAPTOP\MSSQLSERVER3;Initial Catalog=hotel;Integrated Security=True;TrustServerCertificate=True;Application Name=SSIS-DATAWH-{6F29FCEB-B3F4-4B6A-93E5-76E65E613BA6}AYRTON-LAPTOP\MSSQLSERVER3.hotel;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

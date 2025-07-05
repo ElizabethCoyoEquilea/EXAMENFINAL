@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "DATAWH", "DATAWH\DATAWH.dtproj", "{7AED1839-7DAF-5094-C46C-3514FB21BA68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AED1839-7DAF-5094-C46C-3514FB21BA68}.Development|Default.ActiveCfg = Development
+		{7AED1839-7DAF-5094-C46C-3514FB21BA68}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9EDDBC94-A525-40BB-B871-2110ECD3DA7E}
+	EndGlobalSection
+EndGlobal

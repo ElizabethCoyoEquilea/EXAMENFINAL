@@ -1,0 +1,3015 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/24/2025 5:25:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AYRTON-LAPTOP"
+  DTS:CreatorName="AYRTON-LAPTOP\Lenovo"
+  DTS:DTSID="{8227AE5D-92DC-4992-9A04-5E3C6AAC5C46}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{88576505-93DC-4528-8D1A-7474A65D7908}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dimensiones Venta"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B508DAC8-DF81-4060-9F92-1C83A4B46784}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dimensiones Venta"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dimensiones Venta\dimAlmacen"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dimAlmacen"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dimAlmacen]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\dimAlmacen.Connections[OleDbConnection]"
+                  connectionManagerID="{24B6715F-0B81-4B93-B032-C1D34F4B5EB4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erpDM1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].Columns[tipo]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="tipo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[tipo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].Columns[especializacion]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="especializacion"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].ExternalColumns[especializacion]"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[especializacion]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].Columns[codigo]"
+                      cachedDataType="i4"
+                      cachedName="codigo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].ExternalColumns[idAlmacen]"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].ExternalColumns[idAlmacen]"
+                      dataType="i4"
+                      name="idAlmacen" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="50"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input].ExternalColumns[especializacion]"
+                      dataType="wstr"
+                      length="100"
+                      name="especializacion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\dimAlmacen.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimAlmacen.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimAlmacen.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimAlmacen.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\dimArticulo"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dimArticulo"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dimArticulo]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\dimArticulo.Connections[OleDbConnection]"
+                  connectionManagerID="{24B6715F-0B81-4B93-B032-C1D34F4B5EB4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erpDM1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[idArticulo]"
+                      cachedDataType="i4"
+                      cachedName="idArticulo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[idArticulo]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[idArticulo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[nombre]"
+                      cachedDataType="nText"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[marca]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="marca"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[marca]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[marca]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[modelo]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="modelo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[modelo]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[modelo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="categoria"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[categoria]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[categoria]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[sub_categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="sub_categoria"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[sub_categoria]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[sub_categoria]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[linea]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="linea"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[linea]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[linea]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[tipo]"
+                      cachedDataType="wstr"
+                      cachedLength="45"
+                      cachedName="tipo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[tipo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[unidad]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="unidad"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[unidad]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[unidad]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].Columns[envase]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="envase"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[envase]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[envase]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[idArticulo]"
+                      dataType="i4"
+                      name="idArticulo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      dataType="nText"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[marca]"
+                      dataType="wstr"
+                      length="80"
+                      name="marca" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[modelo]"
+                      dataType="wstr"
+                      length="25"
+                      name="modelo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="45"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[sub_categoria]"
+                      dataType="wstr"
+                      length="45"
+                      name="sub_categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[linea]"
+                      dataType="wstr"
+                      length="80"
+                      name="linea" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="45"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[unidad]"
+                      dataType="wstr"
+                      length="50"
+                      name="unidad" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input].ExternalColumns[envase]"
+                      dataType="wstr"
+                      length="100"
+                      name="envase" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\dimArticulo.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimArticulo.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimArticulo.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimArticulo.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\dimCliente"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dimCliente"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dimCliente]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\dimCliente.Connections[OleDbConnection]"
+                  connectionManagerID="{24B6715F-0B81-4B93-B032-C1D34F4B5EB4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erpDM1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[idCliente]"
+                      cachedDataType="i4"
+                      cachedName="idCliente"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[idCliente]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[idCliente]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[nombre]"
+                      cachedDataType="nText"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[sexo]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="sexo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[sexo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[nacionalidad]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="nacionalidad"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[nacionalidad]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[nacionalidad]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[preferencia_pago]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="preferencia_pago"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[preferencia_pago]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[preferencia_pago]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[estado]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="estado"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[estado]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[tipo]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tipo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[tipo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[tipo_identificacion]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="tipo_identificacion"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[tipo_identificacion]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[tipo_identificacion]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="categoria"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[categoria]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[categoria]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[idCliente]"
+                      dataType="i4"
+                      name="idCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      dataType="nText"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[sexo]"
+                      dataType="wstr"
+                      length="1"
+                      name="sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[nacionalidad]"
+                      dataType="wstr"
+                      length="20"
+                      name="nacionalidad" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[preferencia_pago]"
+                      dataType="wstr"
+                      length="50"
+                      name="preferencia_pago" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="255"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="20"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="estado" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input].ExternalColumns[tipo_identificacion]"
+                      dataType="wstr"
+                      length="20"
+                      name="tipo_identificacion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\dimCliente.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimCliente.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\dimUnidadNegocio"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dimUnidadNegocio"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dimUnidadNegocio]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\dimUnidadNegocio.Connections[OleDbConnection]"
+                  connectionManagerID="{24B6715F-0B81-4B93-B032-C1D34F4B5EB4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erpDM1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].Columns[idNegocio]"
+                      cachedDataType="i4"
+                      cachedName="idNegocio"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[idNegocio]"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[idNegocio]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].Columns[empresa]"
+                      cachedDataType="nText"
+                      cachedName="empresa"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[empresa]"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[empresa]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].Columns[tipo]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="tipo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[tipo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].Columns[canal_comercial]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="canal_comercial"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[canal_comercial]"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[canal_comercial]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[idNegocio]"
+                      dataType="i4"
+                      name="idNegocio" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="80"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[empresa]"
+                      dataType="nText"
+                      name="empresa" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="30"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input].ExternalColumns[canal_comercial]"
+                      dataType="wstr"
+                      length="30"
+                      name="canal_comercial" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\dimUnidadNegocio.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimUnidadNegocio.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimUnidadNegocio.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimUnidadNegocio.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\dimVendedor"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dimVendedor"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dimVendedor]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\dimVendedor.Connections[OleDbConnection]"
+                  connectionManagerID="{24B6715F-0B81-4B93-B032-C1D34F4B5EB4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erpDM1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].Columns[idVendedor]"
+                      cachedDataType="i4"
+                      cachedName="idVendedor"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idVendedor]"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[idVendedor]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].Columns[nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].Columns[estado]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="estado"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[estado]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].Columns[cargo]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="cargo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[cargo]"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[cargo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].Columns[tipo]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="tipo"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[tipo]" />
+                    <inputColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].Columns[tipo_contrato]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="tipo_contrato"
+                      externalMetadataColumnId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[tipo_contrato]"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[tipo_contrato]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[idVendedor]"
+                      dataType="i4"
+                      name="idVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="80"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[estado]"
+                      dataType="wstr"
+                      length="30"
+                      name="estado" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[cargo]"
+                      dataType="wstr"
+                      length="60"
+                      name="cargo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="20"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input].ExternalColumns[tipo_contrato]"
+                      dataType="wstr"
+                      length="30"
+                      name="tipo_contrato" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\dimVendedor.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\dimVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\dimVendedor.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\Leer Almacen"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer Almacen"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT db_erp_sige.almacen.codigo, db_erp_sige.almacen.nombre, db_erp_sige.almacen.tipo_almacen AS tipo, db_erp_sige.almacen.especializacion
+FROM     db_erp_sige.almacen LEFT JOIN
+                  erpDM.dbo.dimAlmacen ON db_erp_sige.almacen.codigo = erpDM.dbo.dimAlmacen.idAlmacen
+WHERE  (erpDM.dbo.dimAlmacen.idAlmacen IS NULL)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\Leer Almacen.Connections[IDbConnection]"
+                  connectionManagerID="{D52CE048-9F61-45BC-A3E8-166F2011B286}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[codigo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].ExternalColumns[codigo]"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[codigo]"
+                      name="codigo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      length="50"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      length="50"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      name="tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[especializacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].ExternalColumns[especializacion]"
+                      length="100"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].Columns[especializacion]"
+                      name="especializacion"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].ExternalColumns[codigo]"
+                      dataType="i4"
+                      name="codigo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="50"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="50"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET].ExternalColumns[especializacion]"
+                      dataType="wstr"
+                      length="100"
+                      name="especializacion" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[codigo]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[codigo]"
+                      name="codigo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      name="tipo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[especializacion]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[especializacion]"
+                      name="especializacion" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\Leer Articulo"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer Articulo"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT db_erp_sige.articulo.codigo AS idArticulo, db_erp_sige.articulo.nombre, db_erp_sige.articulo.marca, db_erp_sige.articulo.modelo, ISNULL(db_erp_sige.categoria.nombre, 'VACIO') AS categoria, ISNULL(db_erp_sige.sub_categoria.nombre, 
+                  'VACIO') AS sub_categoria, ISNULL(db_erp_sige.linea_articulo.nombre, 'VACIO') AS linea, ISNULL(db_erp_sige.tipo_articulo.descripcion, 'VACIO') AS tipo, ISNULL(db_erp_sige.unidad.descripcion, 'VACIO') AS unidad, 
+                  ISNULL(tipo_embase.Nombre, 'VACIO') AS envase
+FROM     db_erp_sige.articulo LEFT OUTER JOIN
+                  db_erp_sige.sub_categoria ON db_erp_sige.articulo.sub_categoria = db_erp_sige.sub_categoria.codigo LEFT OUTER JOIN
+                  db_erp_sige.categoria ON db_erp_sige.sub_categoria.categoria = db_erp_sige.categoria.codigo LEFT OUTER JOIN
+                  db_erp_sige.linea_articulo ON db_erp_sige.articulo.linea_articulo = db_erp_sige.linea_articulo.codigo LEFT OUTER JOIN
+                  db_erp_sige.tipo_articulo ON db_erp_sige.articulo.tipo_articulo = db_erp_sige.tipo_articulo.codigo LEFT OUTER JOIN
+                  tipo_embase ON db_erp_sige.articulo.embase = tipo_embase.codigo LEFT OUTER JOIN
+                  db_erp_sige.unidad ON db_erp_sige.articulo.unidad_salida = db_erp_sige.unidad.codigo LEFT OUTER JOIN
+                  erpDM.dbo.dimArticulo ON db_erp_sige.articulo.codigo = erpDM.dbo.dimArticulo.idArticulo
+WHERE  (erpDM.dbo.dimArticulo.idArticulo IS NULL)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\Leer Articulo.Connections[IDbConnection]"
+                  connectionManagerID="{D52CE048-9F61-45BC-A3E8-166F2011B286}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[idArticulo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[idArticulo]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[idArticulo]"
+                      name="idArticulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[marca]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[marca]"
+                      length="80"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[marca]"
+                      name="marca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[modelo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[modelo]"
+                      length="25"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[modelo]"
+                      name="modelo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[categoria]"
+                      length="45"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[categoria]"
+                      name="categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[sub_categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[sub_categoria]"
+                      length="45"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[sub_categoria]"
+                      name="sub_categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[linea]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[linea]"
+                      length="80"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[linea]"
+                      name="linea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      length="45"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      name="tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[unidad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[unidad]"
+                      length="50"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[unidad]"
+                      name="unidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[envase]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[envase]"
+                      length="100"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].Columns[envase]"
+                      name="envase"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[idArticulo]"
+                      dataType="i4"
+                      name="idArticulo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      dataType="nText"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[marca]"
+                      dataType="wstr"
+                      length="80"
+                      name="marca" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[modelo]"
+                      dataType="wstr"
+                      length="25"
+                      name="modelo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="45"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[sub_categoria]"
+                      dataType="wstr"
+                      length="45"
+                      name="sub_categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[linea]"
+                      dataType="wstr"
+                      length="80"
+                      name="linea" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="45"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[unidad]"
+                      dataType="wstr"
+                      length="50"
+                      name="unidad" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET].ExternalColumns[envase]"
+                      dataType="wstr"
+                      length="100"
+                      name="envase" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[idArticulo]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[idArticulo]"
+                      name="idArticulo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      dataType="nText"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[marca]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[marca]"
+                      name="marca" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[modelo]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[modelo]"
+                      name="modelo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[categoria]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[sub_categoria]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[sub_categoria]"
+                      name="sub_categoria" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[linea]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[linea]"
+                      name="linea" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      length="45"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      name="tipo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[unidad]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[unidad]"
+                      name="unidad" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[envase]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[envase]"
+                      name="envase" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\Leer Cliente"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer Cliente"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT db_erp_sige.cliente.codigo AS idCliente, db_erp_sige.cliente.nombre, db_erp_sige.cliente.sexo, db_erp_sige.cliente.nacionalidad, db_erp_sige.cliente.preferencia_pago, ISNULL(db_erp_sige.estado_cliente.nombre, 'VACIO') AS estado, 
+                  ISNULL(db_erp_sige.tipo_cliente.nombre, 'VACIO') AS tipo, ISNULL(tipo_identificacion.nombre, 'VACIO') AS tipo_identificacion, ISNULL(categoria_cliente.nombre, 'VACIO') AS categoria
+FROM     db_erp_sige.cliente LEFT OUTER JOIN
+                  categoria_cliente ON db_erp_sige.cliente.categoria_cliente = categoria_cliente.codigo LEFT OUTER JOIN
+                  db_erp_sige.estado_cliente ON db_erp_sige.cliente.estado_cliente = db_erp_sige.estado_cliente.codigo LEFT OUTER JOIN
+                  db_erp_sige.tipo_cliente ON db_erp_sige.cliente.tipo_cliente = db_erp_sige.tipo_cliente.codigo LEFT OUTER JOIN
+                  tipo_identificacion ON db_erp_sige.cliente.tipo_identificacion = tipo_identificacion.codigo LEFT OUTER JOIN
+                  erpDM.dbo.dimCliente ON db_erp_sige.cliente.codigo = erpDM.dbo.dimCliente.idCliente
+WHERE  (erpDM.dbo.dimCliente.idCliente IS NULL)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\Leer Cliente.Connections[IDbConnection]"
+                  connectionManagerID="{D52CE048-9F61-45BC-A3E8-166F2011B286}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[idCliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[idCliente]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[idCliente]"
+                      name="idCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[sexo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[sexo]"
+                      length="1"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[sexo]"
+                      name="sexo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[nacionalidad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[nacionalidad]"
+                      length="20"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[nacionalidad]"
+                      name="nacionalidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[preferencia_pago]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[preferencia_pago]"
+                      length="50"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[preferencia_pago]"
+                      name="preferencia_pago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[estado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[estado]"
+                      length="255"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[estado]"
+                      name="estado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      length="255"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      name="tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[tipo_identificacion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo_identificacion]"
+                      length="20"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[tipo_identificacion]"
+                      name="tipo_identificacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[categoria]"
+                      length="20"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].Columns[categoria]"
+                      name="categoria"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[idCliente]"
+                      dataType="i4"
+                      name="idCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      dataType="nText"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[sexo]"
+                      dataType="wstr"
+                      length="1"
+                      name="sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[nacionalidad]"
+                      dataType="wstr"
+                      length="20"
+                      name="nacionalidad" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[preferencia_pago]"
+                      dataType="wstr"
+                      length="50"
+                      name="preferencia_pago" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[estado]"
+                      dataType="wstr"
+                      length="255"
+                      name="estado" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="255"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo_identificacion]"
+                      dataType="wstr"
+                      length="20"
+                      name="tipo_identificacion" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="20"
+                      name="categoria" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[idCliente]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[idCliente]"
+                      name="idCliente" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      dataType="nText"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[sexo]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[sexo]"
+                      name="sexo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[nacionalidad]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[nacionalidad]"
+                      name="nacionalidad" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[preferencia_pago]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[preferencia_pago]"
+                      name="preferencia_pago" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[estado]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[estado]"
+                      name="estado" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      name="tipo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[tipo_identificacion]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[tipo_identificacion]"
+                      name="tipo_identificacion" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[categoria]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\Leer Unidad Negocio"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer Unidad Negocio"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT db_erp_sige.unidad_de_negocio.codigo AS idNegocio, db_erp_sige.unidad_de_negocio.nombre, ISNULL(db_erp_sige.empresa_o_grupo.descripcion, 'VACIO') AS empresa, ISNULL(tipo_unidad.nombre, 'VACIO') AS tipo, 
+                  ISNULL(canal_comercial.nombre, 'VACIO') AS canal_comercial
+FROM     db_erp_sige.unidad_de_negocio LEFT OUTER JOIN
+                  canal_comercial ON db_erp_sige.unidad_de_negocio.canal_comercial = canal_comercial.codigo LEFT OUTER JOIN
+                  tipo_unidad ON db_erp_sige.unidad_de_negocio.tipo_unidad = tipo_unidad.codigo LEFT OUTER JOIN
+                  db_erp_sige.empresa_o_grupo ON db_erp_sige.unidad_de_negocio.empresa_o_grupo = db_erp_sige.empresa_o_grupo.codigo LEFT OUTER JOIN
+                  erpDM.dbo.dimUnidadNegocio ON db_erp_sige.unidad_de_negocio.codigo = erpDM.dbo.dimUnidadNegocio.idNegocio
+WHERE  (erpDM.dbo.dimUnidadNegocio.idNegocio IS NULL)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\Leer Unidad Negocio.Connections[IDbConnection]"
+                  connectionManagerID="{D52CE048-9F61-45BC-A3E8-166F2011B286}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[idNegocio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[idNegocio]"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[idNegocio]"
+                      name="idNegocio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      length="80"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[empresa]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[empresa]"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[empresa]"
+                      name="empresa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      length="30"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      name="tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[canal_comercial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[canal_comercial]"
+                      length="30"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].Columns[canal_comercial]"
+                      name="canal_comercial"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[idNegocio]"
+                      dataType="i4"
+                      name="idNegocio" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="80"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[empresa]"
+                      dataType="nText"
+                      name="empresa" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="30"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET].ExternalColumns[canal_comercial]"
+                      dataType="wstr"
+                      length="30"
+                      name="canal_comercial" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[idNegocio]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[idNegocio]"
+                      name="idNegocio" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[empresa]"
+                      dataType="nText"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[empresa]"
+                      name="empresa" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      name="tipo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[canal_comercial]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[canal_comercial]"
+                      name="canal_comercial" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones Venta\Leer Vendedor"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer Vendedor"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT db_erp_sige.ejecutivo_de_venta.codigo AS idVendedor, db_erp_sige.ejecutivo_de_venta.nombre, db_erp_sige.ejecutivo_de_venta.estado, ISNULL(db_erp_sige.cargo.nombre, 'VACIO') AS cargo, 
+                  ISNULL(db_erp_sige.tipo_vendedor.nombre, 'VACIO') AS tipo, ISNULL(tipo_contrato.nombre, 'VACIO') AS tipo_contrato
+FROM     db_erp_sige.cargo LEFT OUTER JOIN
+                  db_erp_sige.ejecutivo_de_venta ON db_erp_sige.cargo.codigo = db_erp_sige.ejecutivo_de_venta.cargo LEFT OUTER JOIN
+                  tipo_contrato ON db_erp_sige.ejecutivo_de_venta.tipo_contrato = tipo_contrato.codigo LEFT OUTER JOIN
+                  db_erp_sige.tipo_vendedor ON db_erp_sige.ejecutivo_de_venta.tipo_ejecutivo_venta = db_erp_sige.tipo_vendedor.codigo LEFT OUTER JOIN
+                  erpDM.dbo.dimVendedor ON db_erp_sige.ejecutivo_de_venta.codigo = erpDM.dbo.dimVendedor.idVendedor
+WHERE  (erpDM.dbo.dimVendedor.idVendedor IS NULL)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones Venta\Leer Vendedor.Connections[IDbConnection]"
+                  connectionManagerID="{D52CE048-9F61-45BC-A3E8-166F2011B286}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[idVendedor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[idVendedor]"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[idVendedor]"
+                      name="idVendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      length="80"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[estado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[estado]"
+                      length="30"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[estado]"
+                      name="estado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[cargo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[cargo]"
+                      length="60"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[cargo]"
+                      name="cargo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      length="20"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[tipo]"
+                      name="tipo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[tipo_contrato]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo_contrato]"
+                      length="30"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].Columns[tipo_contrato]"
+                      name="tipo_contrato"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[idVendedor]"
+                      dataType="i4"
+                      name="idVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="80"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[estado]"
+                      dataType="wstr"
+                      length="30"
+                      name="estado" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[cargo]"
+                      dataType="wstr"
+                      length="60"
+                      name="cargo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo]"
+                      dataType="wstr"
+                      length="20"
+                      name="tipo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo_contrato]"
+                      dataType="wstr"
+                      length="30"
+                      name="tipo_contrato" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[idVendedor]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[idVendedor]"
+                      name="idVendedor" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[estado]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[estado]"
+                      name="estado" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[cargo]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[cargo]"
+                      name="cargo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[tipo]"
+                      name="tipo" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[tipo_contrato]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[tipo_contrato]"
+                      name="tipo_contrato" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET]"
+              endId="Package\Dimensiones Venta\dimArticulo.Inputs[OLE DB Destination Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Dimensiones Venta\Leer Articulo.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET1]"
+              endId="Package\Dimensiones Venta\dimCliente.Inputs[OLE DB Destination Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Dimensiones Venta\Leer Cliente.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET2]"
+              endId="Package\Dimensiones Venta\dimVendedor.Inputs[OLE DB Destination Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Dimensiones Venta\Leer Vendedor.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET3]"
+              endId="Package\Dimensiones Venta\dimUnidadNegocio.Inputs[OLE DB Destination Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Dimensiones Venta\Leer Unidad Negocio.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET4]"
+              endId="Package\Dimensiones Venta\dimAlmacen.Inputs[OLE DB Destination Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Dimensiones Venta\Leer Almacen.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fact Ventas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B54A3B56-7DD0-40F1-804D-8947AFCE7003}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fact Ventas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fact Ventas\factVentas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="factVentas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[factVentas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact Ventas\factVentas.Connections[OleDbConnection]"
+                  connectionManagerID="{24B6715F-0B81-4B93-B032-C1D34F4B5EB4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erpDM1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[idArticulo]"
+                      cachedDataType="i4"
+                      cachedName="idArticulo"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idArticulo]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idArticulo]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[idCliente]"
+                      cachedDataType="i4"
+                      cachedName="idCliente"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idCliente]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idCliente]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[idVendedor]"
+                      cachedDataType="i4"
+                      cachedName="idVendedor"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idVendedor]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idVendedor]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[idNegocio]"
+                      cachedDataType="i4"
+                      cachedName="idNegocio"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idNegocio]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idNegocio]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[idAlmacen]"
+                      cachedDataType="i4"
+                      cachedName="idAlmacen"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idAlmacen]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idAlmacen]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[fecha]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[cantidad_de_unidades]"
+                      cachedDataType="r8"
+                      cachedName="cantidad_de_unidades"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[cantidad_de_unidades]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[cantidad_de_unidades]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[monto_total]"
+                      cachedDataType="r8"
+                      cachedName="monto_total"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[monto_total]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[monto_total]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[margen_de_ganancia]"
+                      cachedDataType="r8"
+                      cachedName="margen_de_ganancia"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[margen_de_ganancia]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[margen_de_ganancia]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[porcentaje_de_descuento]"
+                      cachedDataType="r8"
+                      cachedName="porcentaje_de_descuento"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[porcentaje_de_descuento]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[porcentaje_de_descuento]" />
+                    <inputColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].Columns[impuesto_total]"
+                      cachedDataType="r8"
+                      cachedName="impuesto_total"
+                      externalMetadataColumnId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[impuesto_total]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[impuesto_total]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idArticulo]"
+                      dataType="i4"
+                      name="idArticulo" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idCliente]"
+                      dataType="i4"
+                      name="idCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idVendedor]"
+                      dataType="i4"
+                      name="idVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idNegocio]"
+                      dataType="i4"
+                      name="idNegocio" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[idAlmacen]"
+                      dataType="i4"
+                      name="idAlmacen" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[fecha]"
+                      dataType="wstr"
+                      length="10"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[cantidad_de_unidades]"
+                      dataType="r8"
+                      name="cantidad_de_unidades" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[monto_total]"
+                      dataType="r8"
+                      name="monto_total" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[margen_de_ganancia]"
+                      dataType="r8"
+                      name="margen_de_ganancia" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[porcentaje_de_descuento]"
+                      dataType="r8"
+                      name="porcentaje_de_descuento" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input].ExternalColumns[impuesto_total]"
+                      dataType="r8"
+                      name="impuesto_total" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact Ventas\factVentas.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Ventas\factVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\factVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\factVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\factVentas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact Ventas\Leer Ventas"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer Ventas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT db_erp_sige.articulo.codigo AS idArticulo, db_erp_sige.cliente.codigo AS idCliente, db_erp_sige.ejecutivo_de_venta.codigo AS idVendedor, db_erp_sige.unidad_de_negocio.codigo AS idNegocio, db_erp_sige.almacen.codigo AS idAlmacen, 
+                  db_erp_sige.factura.fecha, SUM(db_erp_sige.detalle_factura.cantidad) AS cantidad_de_unidades, SUM(db_erp_sige.detalle_factura.sub_total) AS monto_total, 
+                  SUM(db_erp_sige.detalle_factura.sub_total - db_erp_sige.detalle_factura.costo_unitario * db_erp_sige.detalle_factura.cantidad) * 1.0 / NULLIF (SUM(db_erp_sige.detalle_factura.sub_total), 0) * 100 AS margen_de_ganancia, 
+                  SUM(db_erp_sige.detalle_factura.descuento) / NULLIF (SUM(db_erp_sige.detalle_factura.precio * db_erp_sige.detalle_factura.cantidad), 0) * 100 AS porcentaje_de_descuento, SUM(db_erp_sige.detalle_factura.itbis) 
+                  AS impuesto_total
+FROM     db_erp_sige.detalle_factura INNER JOIN
+                  db_erp_sige.factura ON db_erp_sige.detalle_factura.factura = db_erp_sige.factura.codigo INNER JOIN
+                  db_erp_sige.almacen ON db_erp_sige.detalle_factura.almacen = db_erp_sige.almacen.codigo INNER JOIN
+                  db_erp_sige.articulo ON db_erp_sige.detalle_factura.articulo = db_erp_sige.articulo.codigo INNER JOIN
+                  db_erp_sige.cliente ON db_erp_sige.factura.cliente = db_erp_sige.cliente.codigo INNER JOIN
+                  db_erp_sige.ejecutivo_de_venta ON db_erp_sige.factura.vendedor = db_erp_sige.ejecutivo_de_venta.codigo INNER JOIN
+                  db_erp_sige.unidad_de_negocio ON db_erp_sige.factura.unidad_de_negocio = db_erp_sige.unidad_de_negocio.codigo LEFT OUTER JOIN
+                  erpDM.dbo.factVentas ON db_erp_sige.articulo.codigo = erpDM.dbo.factVentas.idArticulo AND db_erp_sige.cliente.codigo = erpDM.dbo.factVentas.idCliente AND 
+                  db_erp_sige.ejecutivo_de_venta.codigo = erpDM.dbo.factVentas.idVendedor AND db_erp_sige.unidad_de_negocio.codigo = erpDM.dbo.factVentas.idNegocio AND db_erp_sige.almacen.codigo = erpDM.dbo.factVentas.idAlmacen AND 
+                  db_erp_sige.factura.fecha = erpDM.dbo.factVentas.fecha
+WHERE  (erpDM.dbo.factVentas.idArticulo IS NULL) OR
+                  (erpDM.dbo.factVentas.idCliente IS NULL) OR
+                  (erpDM.dbo.factVentas.idVendedor IS NULL) OR
+                  (erpDM.dbo.factVentas.idNegocio IS NULL) OR
+                  (erpDM.dbo.factVentas.idAlmacen IS NULL) OR
+                  (erpDM.dbo.factVentas.fecha IS NULL)
+GROUP BY db_erp_sige.articulo.codigo, db_erp_sige.cliente.codigo, db_erp_sige.ejecutivo_de_venta.codigo, db_erp_sige.unidad_de_negocio.codigo, db_erp_sige.almacen.codigo, db_erp_sige.factura.fecha</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact Ventas\Leer Ventas.Connections[IDbConnection]"
+                  connectionManagerID="{D52CE048-9F61-45BC-A3E8-166F2011B286}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.erp]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idArticulo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idArticulo]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idArticulo]"
+                      name="idArticulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idCliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idCliente]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idCliente]"
+                      name="idCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idVendedor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idVendedor]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idVendedor]"
+                      name="idVendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idNegocio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idNegocio]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idNegocio]"
+                      name="idNegocio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idAlmacen]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idAlmacen]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[idAlmacen]"
+                      name="idAlmacen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[fecha]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[cantidad_de_unidades]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_de_unidades]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[cantidad_de_unidades]"
+                      name="cantidad_de_unidades"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[monto_total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[monto_total]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[monto_total]"
+                      name="monto_total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[margen_de_ganancia]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[margen_de_ganancia]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[margen_de_ganancia]"
+                      name="margen_de_ganancia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[porcentaje_de_descuento]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[porcentaje_de_descuento]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[porcentaje_de_descuento]"
+                      name="porcentaje_de_descuento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[impuesto_total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[impuesto_total]"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].Columns[impuesto_total]"
+                      name="impuesto_total"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idArticulo]"
+                      dataType="i4"
+                      name="idArticulo" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idCliente]"
+                      dataType="i4"
+                      name="idCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idVendedor]"
+                      dataType="i4"
+                      name="idVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idNegocio]"
+                      dataType="i4"
+                      name="idNegocio" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[idAlmacen]"
+                      dataType="i4"
+                      name="idAlmacen" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha]"
+                      dataType="dbDate"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_de_unidades]"
+                      dataType="r8"
+                      name="cantidad_de_unidades" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[monto_total]"
+                      dataType="r8"
+                      name="monto_total" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[margen_de_ganancia]"
+                      dataType="r8"
+                      name="margen_de_ganancia" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[porcentaje_de_descuento]"
+                      dataType="r8"
+                      name="porcentaje_de_descuento" />
+                    <externalMetadataColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET].ExternalColumns[impuesto_total]"
+                      dataType="r8"
+                      name="impuesto_total" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idArticulo]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idArticulo]"
+                      name="idArticulo" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idCliente]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idCliente]"
+                      name="idCliente" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idVendedor]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idVendedor]"
+                      name="idVendedor" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idNegocio]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idNegocio]"
+                      name="idNegocio" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idAlmacen]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[idAlmacen]"
+                      name="idAlmacen" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[fecha]"
+                      dataType="dbDate"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_de_unidades]"
+                      dataType="r8"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_de_unidades]"
+                      name="cantidad_de_unidades" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[monto_total]"
+                      dataType="r8"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[monto_total]"
+                      name="monto_total" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[margen_de_ganancia]"
+                      dataType="r8"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[margen_de_ganancia]"
+                      name="margen_de_ganancia" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[porcentaje_de_descuento]"
+                      dataType="r8"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[porcentaje_de_descuento]"
+                      name="porcentaje_de_descuento" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[impuesto_total]"
+                      dataType="r8"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[impuesto_total]"
+                      name="impuesto_total" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fact Ventas.Paths[Salida de origen de ADO NET]"
+              endId="Package\Fact Ventas\factVentas.Inputs[OLE DB Destination Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Fact Ventas\Leer Ventas.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{AF55752D-A53D-4657-B9DA-48AF3A55B664}"
+      DTS:From="Package\Dimensiones Venta"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Fact Ventas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Dimensiones Venta"
+          TopLeft="216.666654828522,94.4666660097573" />
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\Fact Ventas"
+          TopLeft="509.99997213483,99.6666659735971" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="385.466654828522,117.866665991677">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124.533317306307,0"
+              Start="0,0"
+              End="117.033317306307,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="117.033317306307,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dimensiones Venta">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Dimensiones Venta\Leer Articulo"
+          TopLeft="219.999996721745,60.9999990910292" />
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Dimensiones Venta\dimArticulo"
+          TopLeft="542.99999190867,61.3999994188547" />
+        <EdgeLayout
+          Id="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET]"
+          TopLeft="356.799996721745,81.9999992549419">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="186.199995186925,0"
+              Start="0,0"
+              End="178.699995186925,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="178.699995186925,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\Dimensiones Venta\Leer Cliente"
+          TopLeft="225.833320994345,168.999998824795" />
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\Dimensiones Venta\dimCliente"
+          TopLeft="524.999971315266,176.799998770555" />
+        <EdgeLayout
+          Id="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET1]"
+          TopLeft="360.233320994345,193.699998797675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164.766650320921,0"
+              Start="0,0"
+              End="157.266650320921,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="157.266650320921,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Dimensiones Venta\Leer Vendedor"
+          TopLeft="224.166654418741,250.466664924953" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Dimensiones Venta\dimVendedor"
+          TopLeft="524.166638027464,244.399998300473" />
+        <EdgeLayout
+          Id="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET2]"
+          TopLeft="371.36665441874,268.233331612713">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152.799983608723,0"
+              Start="0,0"
+              End="145.299983608723,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="145.299983608723,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Dimensiones Venta\Leer Unidad Negocio"
+          TopLeft="222.499987843137,330.199997703831" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Dimensiones Venta\dimUnidadNegocio"
+          TopLeft="519.999971588454,326.799998011192" />
+        <EdgeLayout
+          Id="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET3]"
+          TopLeft="398.499987843137,349.299997857511">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.499983745317,0"
+              Start="0,0"
+              End="113.999983745317,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="113.999983745317,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Dimensiones Venta\Leer Almacen"
+          TopLeft="228.333320857751,395.466664400631" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\Dimensiones Venta\dimAlmacen"
+          TopLeft="512.166638983622,402.720510807598" />
+        <EdgeLayout
+          Id="Package\Dimensiones Venta.Paths[Salida de origen de ADO NET4]"
+          TopLeft="370.733320857751,419.893587604114">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="141.433318125871,0"
+              Start="0,0"
+              End="133.933318125871,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="133.933318125871,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\dimArticulo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\Leer Articulo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fact Ventas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\Fact Ventas\Leer Ventas"
+          TopLeft="129.999998062849,99.9999985098839" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\Fact Ventas\factVentas"
+          TopLeft="439.999993443489,115.714283990009" />
+        <EdgeLayout
+          Id="Package\Fact Ventas.Paths[Salida de origen de ADO NET]"
+          TopLeft="264.399998062849,120.799998509884">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="175.59999538064,15.7142854801246"
+              Start="0,0"
+              End="168.09999538064,15.7142854801246">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="83.79999769032,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.79999769032,0"
+                    Point2="87.79999769032,0"
+                    Point3="87.79999769032,4" />
+                  <mssgle:LineSegment
+                    End="87.79999769032,11.7142854801246" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.79999769032,11.7142854801246"
+                    Point2="87.79999769032,15.7142854801246"
+                    Point3="91.79999769032,15.7142854801246" />
+                  <mssgle:LineSegment
+                    End="168.09999538064,15.7142854801246" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\Leer Cliente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\dimCliente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\Leer Vendedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\dimVendedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\Leer Unidad Negocio">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\dimUnidadNegocio">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\Leer Almacen">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones Venta\dimAlmacen">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact Ventas\Leer Ventas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact Ventas\factVentas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
