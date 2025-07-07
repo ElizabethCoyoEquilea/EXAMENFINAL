@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="ERP"
   DTS:PackageType="5"
-  DTS:VersionBuild="220"
-  DTS:VersionGUID="{C9B2CA20-C060-4CE0-98A7-22FC7F163E98}">
+  DTS:VersionBuild="229"
+  DTS:VersionGUID="{355CF98D-A0CC-4FD4-9EB5-3A06FCA940F5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -607,12 +607,6 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
                   name="Entrada de destino de ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[ocupado]"
-                      cachedDataType="i4"
-                      cachedName="ocupado"
-                      externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ocupado]"
-                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[ocupado]" />
-                    <inputColumn
                       refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[idLocalizacion]"
                       cachedDataType="i4"
                       cachedName="idLocalizacion"
@@ -630,6 +624,18 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
                       cachedName="idFecha"
                       externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[idFecha]"
                       lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idFecha]" />
+                    <inputColumn
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[ocupado]"
+                      cachedDataType="i4"
+                      cachedName="ocupado"
+                      externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ocupado]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[ocupado]" />
+                    <inputColumn
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[Laborable]"
+                      cachedDataType="i4"
+                      cachedName="Laborable"
+                      externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Laborable]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[Laborable]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -643,12 +649,16 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
                       name="idTipoHabitacion" />
                     <externalMetadataColumn
                       refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[idFecha]"
-                      dataType="i4"
+                      dataType="dbTimeStamp"
                       name="idFecha" />
                     <externalMetadataColumn
                       refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ocupado]"
                       dataType="i4"
                       name="Ocupado" />
+                    <externalMetadataColumn
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Laborable]"
+                      dataType="i4"
+                      name="Laborable" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -694,9 +704,12 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT h.id_hab AS idLocalizacion, h.id_tipo AS idTipoHabitacion, c.fecha AS idFecha, CASE WHEN c.es_laborable = 0 THEN 0 WHEN EXISTS
                       (SELECT 1
                        FROM      asignacion_hab a
-                       WHERE   a.id_hab = h.id_hab AND c.fecha BETWEEN a.fecha_ent AND a.fecha_sal) THEN 1 ELSE 0 END AS ocupado
+                       WHERE   a.id_hab = h.id_hab AND c.fecha BETWEEN a.fecha_ent AND a.fecha_sal) THEN 1 ELSE 0 END AS ocupado, CASE WHEN c.es_laborable=0 THEN 0 ELSE 1 END AS Laborable
 FROM     habitacion AS h CROSS JOIN
-                  calendario AS c</property>
+                  calendario AS c LEFT OUTER JOIN
+                  hotelDM.dbo.factRegistro AS f ON f.idLocalizacion = h.id_hab AND f.idFecha = c.fecha
+WHERE  (f.idLocalizacion IS NULL) OR
+                  (f.idFecha IS NULL)</property>
                 <property
                   dataType="System.Int32"
                   description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
@@ -769,6 +782,15 @@ FROM     habitacion AS h CROSS JOIN
                       lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[ocupado]"
                       name="ocupado"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[Laborable]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[Laborable]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[Laborable]"
+                      name="Laborable"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -788,6 +810,10 @@ FROM     habitacion AS h CROSS JOIN
                       refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[ocupado]"
                       dataType="i4"
                       name="ocupado" />
+                    <externalMetadataColumn
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[Laborable]"
+                      dataType="i4"
+                      name="Laborable" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -815,6 +841,11 @@ FROM     habitacion AS h CROSS JOIN
                       dataType="i4"
                       lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[ocupado]"
                       name="ocupado" />
+                    <outputColumn
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[Laborable]"
+                      dataType="i4"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[Laborable]"
+                      name="Laborable" />
                     <outputColumn
                       refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
@@ -939,21 +970,21 @@ FROM     habitacion AS h CROSS JOIN
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="172,41.6"
-          Id="Package\Dimensiones\Leer TipoHabitacion"
-          TopLeft="207.857143299616,319.647058543346" />
-        <NodeLayout
           Size="158.4,41.6"
           Id="Package\Dimensiones\Leer Localizacion"
           TopLeft="220.000000468322,246.999999783495" />
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Dimensiones\dimLocalizacion"
-          TopLeft="502.142858211787,249.294117428543" />
-        <NodeLayout
           Size="165.6,41.6"
           Id="Package\Dimensiones\dimTipoHabitacion"
           TopLeft="497.142858201144,323.47058795176" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Dimensiones\Leer TipoHabitacion"
+          TopLeft="207.857143299616,319.647058543346" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Dimensiones\dimLocalizacion"
+          TopLeft="502.142858211787,249.294117428543" />
         <EdgeLayout
           Id="Package\Dimensiones.Paths[Salida de origen de ADO NET1]"
           TopLeft="379.857143299616,342.358823247553">
@@ -1002,23 +1033,7 @@ FROM     habitacion AS h CROSS JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\Leer TipoHabitacion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Dimensiones\Leer Localizacion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\dimLocalizacion">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1033,19 +1048,35 @@ FROM     habitacion AS h CROSS JOIN
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones\Leer TipoHabitacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones\dimLocalizacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Hechos">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="139.2,41.6"
-          Id="Package\Hechos\factRegistros"
-          TopLeft="577.857134209907,116.823526630661" />
-        <NodeLayout
           Size="145.6,41.6"
           Id="Package\Hechos\Leer Registros"
           TopLeft="219.142853999016,119.823526585958" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Hechos\factRegistros"
+          TopLeft="577.857134209907,116.823526630661" />
         <EdgeLayout
           Id="Package\Hechos.Paths[Salida de origen de ADO NET]"
           TopLeft="364.742853999016,139.12352660831">

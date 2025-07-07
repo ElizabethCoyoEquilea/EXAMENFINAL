@@ -8,28 +8,28 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>Prueba.cube</Name>
-      <FullPath>Prueba.cube</FullPath>
+      <Name>Registro.cube</Name>
+      <FullPath>Registro.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>Prueba.partitions</Name>
-          <FullPath>Prueba.partitions</FullPath>
+          <Name>Registro.partitions</Name>
+          <FullPath>Registro.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>Dim Empleado.dim</Name>
-      <FullPath>Dim Empleado.dim</FullPath>
+      <Name>Dim Localizacion.dim</Name>
+      <FullPath>Dim Localizacion.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Cliente.dim</Name>
-      <FullPath>Dim Cliente.dim</FullPath>
+      <Name>Dim Fecha.dim</Name>
+      <FullPath>Dim Fecha.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Dim Habitacion.dim</Name>
-      <FullPath>Dim Habitacion.dim</FullPath>
+      <Name>Dim Tipo Habitacion.dim</Name>
+      <FullPath>Dim Tipo Habitacion.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -40,8 +40,8 @@
   </DataSources>
   <DataSourceViews>
     <ProjectItem>
-      <Name>Prueba.dsv</Name>
-      <FullPath>Prueba.dsv</FullPath>
+      <Name>Registro.dsv</Name>
+      <FullPath>Registro.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Configurations>

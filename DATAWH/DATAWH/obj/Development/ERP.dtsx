@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="ERP"
   DTS:PackageType="5"
-  DTS:VersionBuild="217"
-  DTS:VersionGUID="{18C5A2F7-4FB0-4BF5-92B3-DB5792812B35}">
+  DTS:VersionBuild="229"
+  DTS:VersionGUID="{355CF98D-A0CC-4FD4-9EB5-3A06FCA940F5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -558,11 +558,11 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
           version="1">
           <components>
             <component
-              refId="Package\Hechos\dimPrueba"
+              refId="Package\Hechos\factRegistros"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
               description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
-              name="dimPrueba"
+              name="factRegistros"
               usesDispositions="true"
               version="2">
               <properties>
@@ -571,7 +571,7 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
                   description="Nombre de la tabla de la base de datos de destino."
                   expressionType="Notify"
                   name="TableOrViewName"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."factIngresos"</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."factRegistro"</property>
                 <property
                   dataType="System.Int32"
                   description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
@@ -593,7 +593,7 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Hechos\dimPrueba.Connections[IDbConnection]"
+                  refId="Package\Hechos\factRegistros.Connections[IDbConnection]"
                   connectionManagerID="{D8E61ED5-AB25-4898-88F4-5722E1522281}:external"
                   connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.hotelDM]"
                   description="Administrador de conexiones administrado"
@@ -601,75 +601,85 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET]"
+                  refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET]"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].Columns[idCliente]"
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[idLocalizacion]"
                       cachedDataType="i4"
-                      cachedName="idCliente"
-                      externalMetadataColumnId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].ExternalColumns[idCliente]"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idCliente]" />
+                      cachedName="idLocalizacion"
+                      externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[idLocalizacion]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idLocalizacion]" />
                     <inputColumn
-                      refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].Columns[idEmpleado]"
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[idTipoHabitacion]"
                       cachedDataType="i4"
-                      cachedName="idEmpleado"
-                      externalMetadataColumnId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].ExternalColumns[idEmpleado]"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idEmpleado]" />
+                      cachedName="idTipoHabitacion"
+                      externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[idTipoHabitacion]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idTipoHabitacion]" />
                     <inputColumn
-                      refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].Columns[idHabitacion]"
-                      cachedDataType="i4"
-                      cachedName="idHabitacion"
-                      externalMetadataColumnId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].ExternalColumns[idHabitacion]"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idHabitacion]" />
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[idFecha]"
+                      cachedDataType="dbDate"
+                      cachedName="idFecha"
+                      externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[idFecha]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idFecha]" />
                     <inputColumn
-                      refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].Columns[total]"
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[ocupado]"
                       cachedDataType="i4"
-                      cachedName="total"
-                      externalMetadataColumnId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].ExternalColumns[total]"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[total]" />
+                      cachedName="ocupado"
+                      externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ocupado]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[ocupado]" />
+                    <inputColumn
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].Columns[Laborable]"
+                      cachedDataType="i4"
+                      cachedName="Laborable"
+                      externalMetadataColumnId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Laborable]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[Laborable]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].ExternalColumns[idCliente]"
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[idLocalizacion]"
                       dataType="i4"
-                      name="idCliente" />
+                      name="idLocalizacion" />
                     <externalMetadataColumn
-                      refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].ExternalColumns[idEmpleado]"
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[idTipoHabitacion]"
                       dataType="i4"
-                      name="idEmpleado" />
+                      name="idTipoHabitacion" />
                     <externalMetadataColumn
-                      refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].ExternalColumns[idHabitacion]"
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[idFecha]"
+                      dataType="dbTimeStamp"
+                      name="idFecha" />
+                    <externalMetadataColumn
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Ocupado]"
                       dataType="i4"
-                      name="idHabitacion" />
+                      name="Ocupado" />
                     <externalMetadataColumn
-                      refId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET].ExternalColumns[total]"
-                      dataType="r8"
-                      name="total" />
+                      refId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET].ExternalColumns[Laborable]"
+                      dataType="i4"
+                      name="Laborable" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Hechos\dimPrueba.Outputs[Salida de error de destino de ADO NET]"
+                  refId="Package\Hechos\factRegistros.Outputs[Salida de error de destino de ADO NET]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de ADO NET"
-                  synchronousInputId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET]">
+                  synchronousInputId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Hechos\dimPrueba.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      refId="Package\Hechos\factRegistros.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Hechos\dimPrueba.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      lineageId="Package\Hechos\factRegistros.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Hechos\dimPrueba.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      refId="Package\Hechos\factRegistros.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Hechos\dimPrueba.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      lineageId="Package\Hechos\factRegistros.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -678,11 +688,11 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
               </outputs>
             </component>
             <component
-              refId="Package\Hechos\Leer Prueba"
+              refId="Package\Hechos\Leer Registros"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
-              name="Leer Prueba"
+              name="Leer Registros"
               usesDispositions="true"
               version="4">
               <properties>
@@ -691,15 +701,15 @@ WHERE  (hotelDM.dbo.dimTipoHabitacion.idTipoHabitacion IS NULL)</property>
                   description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT clientes.id_cli AS idCliente, usuario.id_user AS idEmpleado, habitacion.id_hab AS idHabitacion, asignacion_hab.costo_total AS total
-FROM     asignacion_hab INNER JOIN
-                  clientes ON asignacion_hab.id_cli = clientes.id_cli INNER JOIN
-                  habitacion ON asignacion_hab.id_hab = habitacion.id_hab INNER JOIN
-                  usuario ON asignacion_hab.id_user = usuario.id_user LEFT OUTER JOIN
-                  hotelDM.dbo.factIngresos ON asignacion_hab.id_cli = hotelDM.dbo.factIngresos.idCliente AND asignacion_hab.id_user = hotelDM.dbo.factIngresos.idEmpleado AND asignacion_hab.id_hab = hotelDM.dbo.factIngresos.idHabitacion
-WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
-                  (hotelDM.dbo.factIngresos.idEmpleado IS NULL) OR
-                  (hotelDM.dbo.factIngresos.idHabitacion IS NULL)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT h.id_hab AS idLocalizacion, h.id_tipo AS idTipoHabitacion, c.fecha AS idFecha, CASE WHEN c.es_laborable = 0 THEN 0 WHEN EXISTS
+                      (SELECT 1
+                       FROM      asignacion_hab a
+                       WHERE   a.id_hab = h.id_hab AND c.fecha BETWEEN a.fecha_ent AND a.fecha_sal) THEN 1 ELSE 0 END AS ocupado, CASE WHEN c.es_laborable=0 THEN 0 ELSE 1 END AS Laborable
+FROM     habitacion AS h CROSS JOIN
+                  calendario AS c LEFT OUTER JOIN
+                  hotelDM.dbo.factRegistro AS f ON f.idLocalizacion = h.id_hab AND f.idFecha = c.fecha
+WHERE  (f.idLocalizacion IS NULL) OR
+                  (f.idFecha IS NULL)</property>
                 <property
                   dataType="System.Int32"
                   description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
@@ -725,7 +735,7 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
               </properties>
               <connections>
                 <connection
-                  refId="Package\Hechos\Leer Prueba.Connections[IDbConnection]"
+                  refId="Package\Hechos\Leer Registros.Connections[IDbConnection]"
                   connectionManagerID="{6F29FCEB-B3F4-4B6A-93E5-76E65E613BA6}:external"
                   connectionManagerRefId="Project.ConnectionManagers[AYRTON-LAPTOP_MSSQLSERVER3.hotel]"
                   description="Administrador de conexiones administrado"
@@ -733,101 +743,119 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
               </connections>
               <outputs>
                 <output
-                  refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET]"
+                  refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET]"
                   name="Salida de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idCliente]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idLocalizacion]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].ExternalColumns[idCliente]"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idCliente]"
-                      name="idCliente"
+                      externalMetadataColumnId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[idLocalizacion]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idLocalizacion]"
+                      name="idLocalizacion"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idEmpleado]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idTipoHabitacion]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].ExternalColumns[idEmpleado]"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idEmpleado]"
-                      name="idEmpleado"
+                      externalMetadataColumnId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[idTipoHabitacion]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idTipoHabitacion]"
+                      name="idTipoHabitacion"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idHabitacion]"
-                      dataType="i4"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idFecha]"
+                      dataType="dbDate"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].ExternalColumns[idHabitacion]"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[idHabitacion]"
-                      name="idHabitacion"
+                      externalMetadataColumnId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[idFecha]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[idFecha]"
+                      name="idFecha"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[total]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[ocupado]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].ExternalColumns[total]"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].Columns[total]"
-                      name="total"
+                      externalMetadataColumnId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[ocupado]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[ocupado]"
+                      name="ocupado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[Laborable]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[Laborable]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].Columns[Laborable]"
+                      name="Laborable"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].ExternalColumns[idCliente]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[idLocalizacion]"
                       dataType="i4"
-                      name="idCliente" />
+                      name="idLocalizacion" />
                     <externalMetadataColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].ExternalColumns[idEmpleado]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[idTipoHabitacion]"
                       dataType="i4"
-                      name="idEmpleado" />
+                      name="idTipoHabitacion" />
                     <externalMetadataColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].ExternalColumns[idHabitacion]"
-                      dataType="i4"
-                      name="idHabitacion" />
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[idFecha]"
+                      dataType="dbDate"
+                      name="idFecha" />
                     <externalMetadataColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET].ExternalColumns[total]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[ocupado]"
                       dataType="i4"
-                      name="total" />
+                      name="ocupado" />
+                    <externalMetadataColumn
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET].ExternalColumns[Laborable]"
+                      dataType="i4"
+                      name="Laborable" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET]"
+                  refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET]"
                   isErrorOut="true"
                   name="Salida de error de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[idCliente]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[idLocalizacion]"
                       dataType="i4"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[idCliente]"
-                      name="idCliente" />
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[idLocalizacion]"
+                      name="idLocalizacion" />
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[idEmpleado]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[idTipoHabitacion]"
                       dataType="i4"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[idEmpleado]"
-                      name="idEmpleado" />
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[idTipoHabitacion]"
+                      name="idTipoHabitacion" />
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[idHabitacion]"
-                      dataType="i4"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[idHabitacion]"
-                      name="idHabitacion" />
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[idFecha]"
+                      dataType="dbDate"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[idFecha]"
+                      name="idFecha" />
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[total]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[ocupado]"
                       dataType="i4"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[total]"
-                      name="total" />
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[ocupado]"
+                      name="ocupado" />
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[Laborable]"
                       dataType="i4"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[Laborable]"
+                      name="Laborable" />
+                    <outputColumn
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      refId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Hechos\Leer Prueba.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      lineageId="Package\Hechos\Leer Registros.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -839,9 +867,9 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
           <paths>
             <path
               refId="Package\Hechos.Paths[Salida de origen de ADO NET]"
-              endId="Package\Hechos\dimPrueba.Inputs[Entrada de destino de ADO NET]"
+              endId="Package\Hechos\factRegistros.Inputs[Entrada de destino de ADO NET]"
               name="Salida de origen de ADO NET"
-              startId="Package\Hechos\Leer Prueba.Outputs[Salida de origen de ADO NET]" />
+              startId="Package\Hechos\Leer Registros.Outputs[Salida de origen de ADO NET]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -888,7 +916,7 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\Hechos"
-          TopLeft="460.000000979219,200.352941000853" />
+          TopLeft="262.14285770089,97.8823528553783" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="322.342857690247,305.117646791376">
@@ -913,18 +941,18 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="384.628571985084,221.917646882536">
+          TopLeft="320.785714842987,201.882352764219">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="75.3714289941352,0"
+              EndConnector="0,-62.3999999088407"
               Start="0,0"
-              End="67.8714289941352,0">
+              End="0,-54.8999999088407">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="67.8714289941352,0" />
+                    End="0,-54.8999999088407" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -942,21 +970,21 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="172,41.6"
-          Id="Package\Dimensiones\Leer TipoHabitacion"
-          TopLeft="207.857143299616,319.647058543346" />
-        <NodeLayout
           Size="158.4,41.6"
           Id="Package\Dimensiones\Leer Localizacion"
           TopLeft="220.000000468322,246.999999783495" />
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\Dimensiones\dimLocalizacion"
-          TopLeft="502.142858211787,249.294117428543" />
-        <NodeLayout
           Size="165.6,41.6"
           Id="Package\Dimensiones\dimTipoHabitacion"
           TopLeft="497.142858201144,323.47058795176" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Dimensiones\Leer TipoHabitacion"
+          TopLeft="207.857143299616,319.647058543346" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Dimensiones\dimLocalizacion"
+          TopLeft="502.142858211787,249.294117428543" />
         <EdgeLayout
           Id="Package\Dimensiones.Paths[Salida de origen de ADO NET1]"
           TopLeft="379.857143299616,342.358823247553">
@@ -1005,23 +1033,7 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\Leer TipoHabitacion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Dimensiones\Leer Localizacion">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\dimLocalizacion">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1036,33 +1048,49 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones\Leer TipoHabitacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dimensiones\dimLocalizacion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Hechos">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="128.8,41.6"
-          Id="Package\Hechos\dimPrueba"
-          TopLeft="577.857134209907,116.823526630661" />
-        <NodeLayout
-          Size="135.2,41.6"
-          Id="Package\Hechos\Leer Prueba"
+          Size="145.6,41.6"
+          Id="Package\Hechos\Leer Registros"
           TopLeft="219.142853999016,119.823526585958" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Hechos\factRegistros"
+          TopLeft="577.857134209907,116.823526630661" />
         <EdgeLayout
           Id="Package\Hechos.Paths[Salida de origen de ADO NET]"
-          TopLeft="354.342853999016,139.12352660831">
+          TopLeft="364.742853999016,139.12352660831">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="223.514280210891,0"
+              EndConnector="213.114280210891,0"
               Start="0,0"
-              End="216.014280210891,0">
+              End="205.614280210891,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="216.014280210891,0" />
+                    End="205.614280210891,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1075,7 +1103,7 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Hechos\dimPrueba">
+    design-time-name="Package\Hechos\factRegistros">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1083,7 +1111,7 @@ WHERE  (hotelDM.dbo.factIngresos.idCliente IS NULL) OR
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Hechos\Leer Prueba">
+    design-time-name="Package\Hechos\Leer Registros">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

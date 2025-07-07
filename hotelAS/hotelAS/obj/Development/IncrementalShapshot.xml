@@ -26,37 +26,37 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>cxwz5yxMfa/ed7Ag1lVp3BbssxE=04/07/2025 04:01:34 p. m.04/07/2025 04:01:34 p. m.</TimeStamp>
+        <TimeStamp>nOqHhGWxSyVo+NcTx6LTGE6vF6w=07/07/2025 04:04:58 p. m.07/07/2025 04:04:50 p. m.</TimeStamp>
         <ID>
-          <String>Prueba</String>
+          <String>Registro</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>p8lNb1SZ06zSKE3EzbzTv9usDVY=04/07/2025 04:06:42 p. m.04/07/2025 03:55:36 p. m.</TimeStamp>
+        <TimeStamp>XshJAubXSU1W3D5Oq4BY/mvakZo=07/07/2025 04:07:34 p. m.07/07/2025 04:07:15 p. m.</TimeStamp>
         <ID>
-          <String>Dim Empleado</String>
+          <String>Dim Localizacion</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>gSVN1LJj6FCqUnevNjWTGxZQD9c=04/07/2025 04:13:02 p. m.04/07/2025 03:55:36 p. m.</TimeStamp>
+        <TimeStamp>rmjhWep6jqtZ+nHovi1kgOcYpeY=07/07/2025 04:07:43 p. m.07/07/2025 04:07:16 p. m.</TimeStamp>
         <ID>
-          <String>Dim Cliente</String>
+          <String>Dim Fecha</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>hFCTmG9KaVh5hJWYFOiA9bvbIYg=04/07/2025 03:55:37 p. m.04/07/2025 03:55:37 p. m.</TimeStamp>
+        <TimeStamp>2Ri4NsIvBSvwbm5R3y/qCPnFO/Q=07/07/2025 04:07:53 p. m.07/07/2025 04:07:16 p. m.</TimeStamp>
         <ID>
-          <String>Dim Habitacion</String>
+          <String>Dim Tipo Habitacion</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>TbzIW7xkyxIbccZ5avxuG9hSa0M=04/07/2025 04:13:02 p. m.04/07/2025 04:01:50 p. m.Z1jjsqV1rzGUN1c4eOZpWI3xvGQ=04/07/2025 04:01:50 p. m.04/07/2025 04:01:50 p. m.</TimeStamp>
+        <TimeStamp>VAc0RVYpQ1nUE2vM0DpC2mtSIQw=07/07/2025 06:29:36 p. m.07/07/2025 04:07:15 p. m.axGnVFdpURNpX6Y9rLaosXsBm1A=07/07/2025 04:07:16 p. m.07/07/2025 04:07:15 p. m.</TimeStamp>
         <ID>
-          <String>Prueba</String>
+          <String>Registro</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
@@ -71,5 +71,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2025-07-04T20:13:10.333333Z</LastDeployed>
+  <LastDeployed>2025-07-07T22:36:37.543333Z</LastDeployed>
 </DeploymentSnapshot>

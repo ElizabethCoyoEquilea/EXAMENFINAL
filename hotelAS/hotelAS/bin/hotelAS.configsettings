@@ -12,24 +12,24 @@
     </DataSources>
     <Dimensions>
       <Dimension>
-        <ID>Dim Empleado</ID>
+        <ID>Dim Localizacion</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim Cliente</ID>
+        <ID>Dim Fecha</ID>
       </Dimension>
       <Dimension>
-        <ID>Dim Habitacion</ID>
+        <ID>Dim Tipo Habitacion</ID>
       </Dimension>
     </Dimensions>
     <Cubes>
       <Cube>
-        <ID>Prueba</ID>
+        <ID>Registro</ID>
         <MeasureGroups>
           <MeasureGroup>
-            <ID>Fact Ingresos</ID>
+            <ID>Fact Registro</ID>
             <Partitions>
               <Partition>
-                <ID>Fact Ingresos</ID>
+                <ID>Fact Registro</ID>
               </Partition>
             </Partitions>
           </MeasureGroup>
